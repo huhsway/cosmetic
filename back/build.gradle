@@ -1,0 +1,60 @@
+plugins {
+    id 'org.springframework.boot' version '2.4.10'
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+    id 'java'
+}
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+allprojects {
+    apply plugin: 'java'
+    apply plugin: 'io.spring.dependency-management'
+    apply plugin: 'org.springframework.boot'
+
+    group = 'com.example'
+    version = '0.0.1-SNAPSHOT'
+    sourceCompatibility = '11'
+
+    dependencies {
+        implementation 'org.jsoup:jsoup:1.13.1'
+        implementation 'org.json:json:20201115'
+        implementation 'com.google.code.gson:gson:2.8.6'
+        implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+        implementation 'org.springframework.boot:spring-boot-starter-web'
+        implementation 'org.springframework.boot:spring-boot-starter-validation'
+        implementation 'io.jsonwebtoken:jjwt:0.9.1'
+        implementation 'javax.xml.bind:jaxb-api:2.3.1'
+        implementation 'org.springframework.boot:spring-boot-starter-security'
+        compileOnly 'org.projectlombok:lombok'
+        runtimeOnly 'com.h2database:h2'
+        annotationProcessor 'org.projectlombok:lombok'
+        testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    }
+    clean {
+        delete 'out'
+    }
+    test {
+        useJUnitPlatform()
+    }
+}
+
+dependencies {
+    compile project(':common')
+    compile project(':crawler')
+}
+
+jar {
+    enabled = false
+}
+
+bootJar {
+    enabled = false
+}

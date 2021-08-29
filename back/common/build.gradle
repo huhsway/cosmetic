@@ -1,0 +1,29 @@
+plugins {
+	id 'java'
+}
+apply plugin: 'java'
+apply plugin: 'io.spring.dependency-management'
+
+group 'com.example'
+version '0.0.1-SNAPSHOT'
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+
+	implementation 'junit:junit:4.12'
+}
+
+test {
+	useJUnitPlatform()
+}
+
+jar {
+	enabled = true
+}
+
+bootJar {
+	enabled = true
+}
