@@ -5,6 +5,11 @@ Vue.use(VueRouter);
 
 export const routes = [
 	{
+		path: "/",
+		component: () => import('@/components/Home'),
+		name: "home"
+	},
+	{
 		path: "/login",
 		component: () => import('@/components/member/Login'),
 		name: "login"
