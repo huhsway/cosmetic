@@ -4,6 +4,7 @@ import cart from "./modules/cart";
 import items from "./modules/items";
 import member from "./modules/member";
 import messages from "./modules/messages";
+import heart from "./modules/heart"
 import * as actions from "./actions";
 import createPersistedState from 'vuex-persistedstate';
 
@@ -15,6 +16,7 @@ export default new Vuex.Store({
 		cart,
 		member,
 		items,
+		heart,
 		messages,
 	},
 	plugins: [

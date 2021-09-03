@@ -39,3 +39,19 @@ export const updateCart = ({commit}, {item, isAdd}) => {
 export const removeItemInCart = ({commit}, {item}) => {
     commit('REMOVE_CART_ITEM', {item});
 }
+
+export const updateHeart = ({commit}, {item, isAdd}) => {
+    commit('UPDATE_HEART', {item, isAdd});
+    if (isAdd) {
+        let message_obj = {
+            message: `${item.title}을 찜한 상품에 담았습니다`,
+            messageClass: "success",
+            autoClose: true
+        }
+        commit('ADD_MESSAGE', message_obj);
+    }
+}
+
+export const removeItemInHeart = ({commit}, {item}) => {
+    commit('REMOVE_HEART_ITEM', {item});
+}

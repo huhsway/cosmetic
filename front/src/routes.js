@@ -19,6 +19,13 @@ export const routes = [
 		name: "home"
 	},
 	{
+
+		path: "/cart",
+		component: () => import('@/components/cart/Cart'),
+		beforeEnter: isAuthenticationMember(),
+		name: "cart",
+	},
+	{
 		path: "/login",
 		component: () => import('@/components/member/Login'),
 		name: "login"
@@ -29,11 +36,10 @@ export const routes = [
 		name: "register"
 	},
 	{
-
-		path: "/cart",
-		component: () => import('@/components/cart/Cart'),
+		path: "/heart",
+		component: () => import('@/components/Heart/Heart'),
 		beforeEnter: isAuthenticationMember(),
-		name: "cart",
+		name: "heart"
 	},
 	{
 		path: "/item/:id",
