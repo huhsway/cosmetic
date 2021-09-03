@@ -45,6 +45,23 @@
           >
             <a class="nav-link">회원가입</a>
           </router-link>
+          <router-link
+            active-class="active"
+            class="nav-item"
+            tag="li"
+            to="/heart"
+          >
+            <a class="nav-link">찜한상품</a>
+          </router-link>
+          <li>
+            <router-link
+              class="btn btn-success navbar-btn"
+              tag="button"
+              to="/cart"
+            >
+              상품비교 <span class="badge badge-light">{{ numItems }}</span>
+            </router-link>
+          </li>
         </ul>
       </div>
     </div>

@@ -19,6 +19,7 @@
   </div>
 </template>
 <script>
+import {mapActions} from "vuex";
 import Header from "./components/common/Header";
 import Footer from "./components/common/Footer";
 import Message from "./components/common/Message";
@@ -27,18 +28,24 @@ export default {
   name: "Home",
   components: {Header, Footer, Message},
   methods: {
+    ...mapActions(["listenToProductList", "findItemByCategoryId"]),
   },
   computed: {
-   
+    param: function () {
+      return this.$route.params.itemCategoryId;
+    },
   },
   created() {
+    // let uid = this.$store.getters.currentUser.uid;
     if (this.param == undefined || this.param == null || this.param == "") {
       this.listenToProductList();
     } else {
       this.findItemByCategoryId(this.param);
     }
 
-    },
+    // this.listenToProductList();
+    // this.getShoppingCart({uid, currentCart: this.$store.getters.cartItemList});
+  },
 };
 </script>
 
